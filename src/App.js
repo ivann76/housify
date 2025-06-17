@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
-import Predict from './pages/Predict'; // You'll create this next
-import About from './pages/About'; // You'll create this next
+import Predict from './pages/Predict';
+import About from './pages/About';
+import Trends from './pages/Trends';
 import './App.css';
+import History from "./pages/History";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/predict" element={<Predict />} />
+          <Route path="/trends" element={<Trends />} />
+          <Route path="/history" element={<History />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>
