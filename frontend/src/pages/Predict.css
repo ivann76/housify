@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: #DDDCDC;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding-top: 80px; /* Add padding to push content below navbar */
+}
+
+/* Navigation Styles - Modified to be opaque */
+.navbar {
+  background-color: #DDDCDC !important; /* Solid color instead of transparent */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  position: fixed;
+  width: 100% !important; /* Full viewport width */
+  left: 0; /* Ensure it starts from left edge */
+  top: 0;
+  z-index: 1000;
+}
+
+/* Rest of your navbar styles remain exactly the same */
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  font-style: italic;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Content styles with adjusted margins */
+.predict-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 20px; /* Additional margin for breathing room */
+}
+
+.predict-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 0; /* Reduced from 20px since we have padding-top on .app */
+}
+
+
+
+.predict-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.predict-header h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.predict-header p {
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.data-stats {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.data-stats p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.data-stats ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.data-stats li {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.predict-form {
+  margin-top: 20px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.input-hint {
+  display: block;
+  font-size: 0.8em;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background: #2980b9;
+}
+
+.submit-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e74c3c;
+  background: #fadbd8;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.prediction-result {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: #e8f4fc;
+  border-radius: 8px;
+}
+
+.prediction-result h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.price-display {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #27ae60;
+  margin: 15px 0;
+}
+
+.disclaimer {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .predict-container {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "location": "Damansara",
+    "property_type": "Townhouse",
+    "built_type": "Unfurnished",
+    "built_size": 1200.0,
+    "rooms": 3,
+    "bathrooms": 2,
+    "car_parks": 1,
+    "predicted_price": 495482.85,
+    "created_at": "2025-06-26T12:16:32.633787"
+  },
+  {
+    "location": "Ampang",
+    "property_type": "Bungalow",
+    "built_type": "Partially Furnished",
+    "built_size": 3190.0,
+    "rooms": 3,
+    "bathrooms": 2,
+    "car_parks": 1,
+    "predicted_price": 1776984.0,
+    "created_at": "2025-06-26T12:16:42.659439"
+  },
+  {
+    "location": "Ampang",
+    "property_type": "Terrace House",
+    "built_type": "New",
+    "built_size": 3190.0,
+    "rooms": 3,
+    "bathrooms": 2,
+    "car_parks": 1,
+    "predicted_price": 1736160.0,
+    "created_at": "2025-06-26T12:16:51.439861"
+  },
+  {
+    "location": "Bangsar",
+    "property_type": "Semi-Detached",
+    "built_type": "Partially Furnished",
+    "built_size": 1200.0,
+    "rooms": 3,
+    "bathrooms": 2,
+    "car_parks": 1,
+    "predicted_price": 494181.19,
+    "created_at": "2025-06-26T16:12:50.183383"
+  }
+]
