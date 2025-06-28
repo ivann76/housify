@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from '../components/NavBar';
 import './History.css';
+import BASE_URL from '../apiConfig';
 
 const History = () => {
   const [predictionHistory, setPredictionHistory] = useState([]);
@@ -21,8 +22,9 @@ const History = () => {
 
         // Fetch both history and stats
         const [historyResponse, statsResponse] = await Promise.all([
-          fetch("http://127.0.0.1:8000/history/predictions"),
-          fetch("http://127.0.0.1:8000/history/stats")
+          fetch(`${BASE_URL}/history/predictions`),
+          fetch(`${BASE_URL}/history/stats`)
+
         ]);
 
         if (historyResponse.ok) {
@@ -49,7 +51,7 @@ const History = () => {
   const clearHistory = async () => {
     if (window.confirm("Are you sure you want to clear all prediction history?")) {
       try {
-        const response = await fetch("http://127.0.0.1:8000/history/predictions", {
+        const response = await fetch(`${BASE_URL}/history/predictions`, {
           method: 'DELETE'
         });
 

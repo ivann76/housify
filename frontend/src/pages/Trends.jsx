@@ -3,6 +3,7 @@ import Plot from "react-plotly.js";
 import axios from "axios";
 import NavBar from '../components/NavBar';
 import './Trends.css';
+import BASE_URL from '../apiConfig';
 
 const Trends = () => {
   const [avgPriceData, setAvgPriceData] = useState([]);
@@ -11,15 +12,15 @@ const Trends = () => {
 
   // Load chart data from backend
   useEffect(() => {
-    axios.get("http://localhost:8000/chart/avg_price_by_type")
+    axios.get(`${BASE_URL}/chart/avg_price_by_type`)
       .then(res => setAvgPriceData(res.data))
       .catch(err => console.error("Error loading avg price:", err));
 
-    axios.get("http://localhost:8000/chart/listings_by_location")
+    axios.get(`${BASE_URL}/chart/listings_by_location`)
       .then(res => setLocationData(res.data))
       .catch(err => console.error("Error loading pie chart:", err));
 
-    axios.get("http://localhost:8000/chart/size_vs_price")
+    axios.get(`${BASE_URL}/chart/size_vs_price`)
       .then(res => setScatterData(res.data))
       .catch(err => console.error("Error loading scatter plot:", err));
   }, []);
@@ -44,14 +45,23 @@ const Trends = () => {
         </div>
 
         {/* Charts Container */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', marginBottom: '32px' }}>
-          {/* Average Price by Property Type - Top Left */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '32px',
+          justifyContent: 'center',
+          marginBottom: '32px'
+        }}>
+          {/* Average Price by Property Type */}
           <div style={{
             backgroundColor: 'white',
             borderRadius: '12px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            padding: '45px',
-            border: '1px solid #e5e5e5'
+            padding: '32px',
+            border: '1px solid #e5e5e5',
+            flex: '1 1 400px',
+            minWidth: '320px',
+            maxWidth: '600px'
           }}>
             <h3 style={{
               fontSize: '20px',
@@ -73,7 +83,6 @@ const Trends = () => {
                 },
               }]}
               layout={{
-                title: "",
                 xaxis: {
                   title: "Property Type",
                   titlefont: { size: 14, color: '#666' },
@@ -86,19 +95,23 @@ const Trends = () => {
                 },
                 margin: { t: 20, b: 80, l: 80, r: 20 },
                 plot_bgcolor: '#fafafa',
-                paper_bgcolor: 'white'
+                paper_bgcolor: 'white',
+                responsive: true
               }}
               style={{ width: '100%', height: '400px' }}
             />
           </div>
 
-          {/* Top 10 Locations by Listing Count - Top Right */}
+          {/* Top 10 Locations by Listing Count */}
           <div style={{
             backgroundColor: 'white',
             borderRadius: '12px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            padding: '45px',
-            border: '1px solid #e5e5e5'
+            padding: '32px',
+            border: '1px solid #e5e5e5',
+            flex: '1 1 400px',
+            minWidth: '320px',
+            maxWidth: '600px'
           }}>
             <h3 style={{
               fontSize: '20px',
@@ -119,27 +132,29 @@ const Trends = () => {
                 textposition: 'outside',
                 marker: {
                   colors: ['#4287f5', '#42f554', '#f54242', '#f5a442', '#a442f5',
-                          '#42f5f5', '#f542f5', '#54f542', '#4254f5', '#f55442']
+                    '#42f5f5', '#f542f5', '#54f542', '#4254f5', '#f55442']
                 }
               }]}
               layout={{
-                title: "",
                 showlegend: false,
                 margin: { t: 20, b: 20, l: 20, r: 20 },
-                paper_bgcolor: 'white'
+                paper_bgcolor: 'white',
+                responsive: true
               }}
               style={{ width: '100%', height: '400px' }}
             />
           </div>
         </div>
 
-        {/* Built Size vs Price - Full Width Bottom */}
+        {/* Built Size vs Price */}
         <div style={{
           backgroundColor: 'white',
           borderRadius: '12px',
           boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
           padding: '32px',
-          border: '1px solid #e5e5e5'
+          border: '1px solid #e5e5e5',
+          width: '100%',
+          overflowX: 'auto'
         }}>
           <h3 style={{
             fontSize: '20px',
@@ -164,7 +179,6 @@ const Trends = () => {
               }
             }]}
             layout={{
-              title: "",
               xaxis: {
                 title: "Built Size (sq ft)",
                 titlefont: { size: 14, color: '#666' },
@@ -180,7 +194,8 @@ const Trends = () => {
               margin: { t: 20, b: 80, l: 100, r: 40 },
               plot_bgcolor: '#fafafa',
               paper_bgcolor: 'white',
-              hovermode: 'closest'
+              hovermode: 'closest',
+              responsive: true
             }}
             style={{ width: '100%', height: '500px' }}
           />

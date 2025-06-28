@@ -138,3 +138,12 @@
 .chart-container {
   height: 256px;
 }
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .plot-container {
+    padding: 16px !important;
+  }
+}
