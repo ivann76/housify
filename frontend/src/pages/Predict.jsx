@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/NavBar';
 import './Predict.css';
+import BASE_URL from '../apiConfig';
 
 const Predict = () => {
   // All possible options from your dataset
@@ -40,7 +41,7 @@ const Predict = () => {
   useEffect(() => {
     const fetchDataStats = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/data_stats');
+        const response = await fetch(`${BASE_URL}/data_stats`);
         const stats = await response.json();
         setDataStats(stats);
       } catch (err) {
@@ -62,7 +63,7 @@ const Predict = () => {
     setPrediction(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/predict_price', {
+      const response = await fetch(`${BASE_URL}/predict_price`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
