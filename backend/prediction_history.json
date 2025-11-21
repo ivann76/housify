@@ -75,5 +75,16 @@
     "car_parks": 1,
     "predicted_price": 494181.19,
     "created_at": "2025-06-28T10:06:52.908074"
+  },
+  {
+    "location": "Subang Jaya",
+    "property_type": "Semi-Detached",
+    "built_type": "Partially Furnished",
+    "built_size": 1200.0,
+    "rooms": 3,
+    "bathrooms": 2,
+    "car_parks": 1,
+    "predicted_price": 494181.19,
+    "created_at": "2025-11-22T01:46:41.870494"
   }
 ]
